@@ -10,6 +10,9 @@ def check_policy(password):
         problems.append("Password must be at least 12 characters long")
     if not any (c.isupper() for c in password):
         problems.append("Password must contain atleast one uppercase letter")
-    
+    if set(password).isdisjoint(set("!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?")):
+        problems.append("Password must contain atleast one special character")
+    if any(a==b for a,b in zip(password, password[1:])):
+        problems.append("Password must not contain any repeated characters")
     return problems
  
