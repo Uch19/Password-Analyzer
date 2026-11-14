@@ -14,5 +14,6 @@ def check_policy(password):
         problems.append("Password must contain atleast one special character")
     if any(a==b for a,b in zip(password, password[1:])):
         problems.append("Password must not contain any repeated characters")
+        
     return problems
  
